@@ -1,0 +1,25 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+       "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+
+	<field name="address">
+		<field-validator type="requiredstring">
+			<message key="sendreward.err.address.requiredstring" />
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">200</param>
+			<param name="minLength">2</param>
+			<message key="sendreward.err.address.length" />
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression">
+				^[ąćęłńóśźżĄĆĘŁŃÓŚŹŻa-z ,.A-Z0-9_-]*$
+			</param>
+			<message key="sendreward.err.address.invalid" />
+		</field-validator>
+		
+	</field>
+
+	
+
+</validators>

@@ -1,0 +1,65 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+       "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="password1">
+		<field-validator type="requiredstring">
+			<message key="registration.err.password.required" />
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">10</param>
+			<param name="minLength">6</param>
+			<message key="registration.err.password.length" />
+		</field-validator>
+		<field-validator type="passwordintegrity">
+			<param name="specialCharacters">$!@#?</param>
+			<message key="registration.err.password.integrity" />
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression">
+				((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$!@#?]).{6,10})
+			</param>
+			<message key="registration.err.password.invalid" />
+		</field-validator>
+	</field>
+	<field name="username">
+		<field-validator type="requiredstring">
+			<message key="registration.err.username.required" />
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">10</param>
+			<param name="minLength">5</param>
+			<message key="registration.err.username.length" />
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression">
+				^[a-zA-Z0-9_-]{3,15}$
+			</param>
+			<message key="registration.err.username.invalid" />
+		</field-validator>
+	</field>
+	<field name="dateOfBirth">
+		<field-validator type="requiredstring">
+			<message key="registration.err.dateofbirth.required" />
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression">
+				^(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$
+			</param>
+			<message key="registration.err.dateofbirth.invalid" />
+		</field-validator>
+	</field>
+
+
+	<field name="email">
+		<field-validator type="requiredstring">
+			<message key="registration.err.email.required" />
+		</field-validator>
+		<field-validator type="email">
+			<message key="registration.err.email.invalid" />
+		</field-validator>
+	</field>
+	<validator type="expression">
+		<param name="expression">password2 == password1</param>
+		<message key="registration.err.password.dontmatch" />
+	</validator>
+</validators>

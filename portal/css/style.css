@@ -1,0 +1,330 @@
+body {
+	background-color: #fff;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+body,table {
+	color: #fff;
+	font-family: "century gothic", verdana, arial;
+	font-size: 12px;
+	line-height: 150%;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: "Trebuchet MS", sans-serif;
+	margin: 0;
+	padding: 5px 0;
+}
+
+h1 {
+	font-size: 45px;
+	text-shadow: 5px 5px 13px #000;
+}
+
+h2 {
+	font-size: 35px;
+}
+
+h3 {
+	font-size: 24px;
+}
+
+h4 {
+	color: #D6F1F5;
+	font-size: 19px;
+}
+
+h5 {
+	font-size: 15px;
+}
+
+h6 {
+	font-size: 13px;
+}
+
+p {
+	font-size: 12px;
+}
+
+table {
+	border-collapse: separate;
+	border-spacing: 2px;
+	margin: 10px;
+	text-align: left;
+}
+
+th {
+	font-weight: bold;
+	background-color: #40718b;
+	padding: 10px 20px;
+	text-align: center;
+}
+
+td {
+	background-color: #4a82a1;
+	padding: 10px 20px;
+	text-align: center;
+}
+
+th.first {
+	background-color: #366076;
+}
+
+td.first {
+	background-color: #40718b;
+}
+
+input,select,textarea {
+	border: 1px solid #CCCCCC;
+	color: #757575;
+	padding: 5px;
+	font-family: "century gothic", verdana, arial;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.width700 {
+	width: 700px;
+}
+
+div#container {
+	background-image: url(../images/logo.jpg);
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	margin: 0 auto;
+	width: 980px;
+}
+
+div#header {
+	color: #000;
+	height: 120px;
+	padding: 100px 0 0 0;
+}
+
+div#subHeader {
+	width: 650px;
+	padding: 15px 10px;
+	padding-left: 320px;
+	background-color: #fff;
+	opacity: 0.8;
+	filter: alpha(opacity = 80); /*for Internet Explorer 6/7*/
+	filter: “alpha(opacity = 80) ”; /*for Internet Explorer 8*/
+}
+
+div#header  a {
+	color: #000;
+	text-decoration: none;
+}
+
+div#header  h3 {
+	font-style: italic;
+	padding: 15px 0 0 5px;
+	text-shadow: 5px 5px 13px #000;
+}
+
+div#header a:hover {
+	text-decoration: none;
+}
+
+div#menu_top {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #4690BB;
+	border: solid 5px #4690BB;
+	border-radius: 5px;
+	margin: 0;
+	padding: 8px 0;
+	font-size: 13px;
+}
+
+div#menu_top ul {
+	font-size: 13px;
+	font-weight: 700;
+	list-style: none;
+	margin: 0;
+	padding: 0 70px;
+}
+
+div#menu_top ul li {
+	border-right: 1px dotted #fff;
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 0 35px;
+}
+
+div#menu_top ul li a {
+	color: #fff;
+	text-decoration: none;
+}
+
+div#menu_top ul li a:hover {
+	text-decoration: underline;
+}
+
+div#sidebar_left {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #000;
+	border: solid 5px #000;
+	border-radius: 5px;
+	float: left;
+	margin: 5px 5px 5px 0;
+	padding: 5px;
+	width: 180px;
+}
+
+div#sidebar_left ul {
+	display: block;
+	list-style-position: inside;
+	list-style-type: disc;
+	margin: 0;
+	padding: 20px 0;
+}
+
+div#sidebar_left ul li {
+	padding: 0 5px 0 10px;
+}
+
+div#sidebar_left a {
+	color: #fff;
+	text-decoration: none;
+}
+
+div#sidebar_left a:hover {
+	text-decoration: underline;
+}
+
+div#sidebar_left div.sidebar_left_title {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #4690BB;
+	border: solid 5px #4690BB;
+	border-radius: 5px;
+	font-family: "Trebuchet MS", sans-serif;
+	font-size: 15px;
+	font-weight: 700;
+	margin: 0;
+	padding: 5px;
+	text-align: center;
+}
+
+div#sidebar_left div.sidebar_left_title.logout {
+	background-color: #FF6A00;
+	border: solid 5px #FF6A00;
+}
+
+div#content {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #4690BB;
+	border: solid 5px #4690BB;
+	border-radius: 5px;
+	float: left;
+	margin: 5px 0;
+	padding: 5px 10px;
+	width: 745px;
+}
+
+div#content ul {
+	display: block;
+	list-style-position: inside;
+	list-style-type: disc;
+	margin: 0;
+	padding: 10px 0;
+}
+
+div#content ul li {
+	padding: 0 10px;
+}
+
+div#content ul a {
+	color: #fff;
+	text-decoration: none;
+}
+
+div#content ul a:hover {
+	text-decoration: underline;
+}
+
+div#content a {
+	color: #fff;
+	text-decoration: underline;
+}
+
+div#content a:hover {
+	text-decoration: none;
+}
+
+div#content_diff {
+	background-color: #599EC4;
+	margin: 10px 0;
+	padding: 10px;
+}
+
+div.content_diff {
+	background-color: #599EC4;
+	margin: 10px 0;
+	padding: 10px;
+}
+
+div#footer {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #4690BB;
+	border: solid 5px #4690BB;
+	border-radius: 5px;
+	clear: both;
+	font-weight: 700;
+	height: 17px;
+	margin: 0 0 10px 0;
+	text-align: center;
+}
+
+div.hr {
+	border-bottom: 1px dotted #fff;
+	margin: 0 0 10px;
+}
+
+div.clearer {
+	clear: both;
+}
+
+label {
+	font-weight: bold;
+}
+
+span.errorMessage {
+	display: block;
+	font-weight: bold;
+	text-align: left;
+	margin-top: 3px;
+	padding: 1px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #FF2700;
+	border: solid 5px #FF2700;
+	position: relative;
+	left: -1px;
+}
+
+table.ui-datepicker-calendar th {
+	color: #000
+}
+
+div#registrationPasswordExpressionErr {
+	display: none;
+	visibility: hidden;
+	height: 0;
+}
+
+img.plusMinus {
+	float: right;
+	position: relative;
+	top: -8px;
+}

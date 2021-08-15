@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+
+
+	<package name="unsecure" namespace="/unsecure" extends="struts-default">
+	
+		
+		
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+			<result-type name="json"
+				class="culinary.utils.JSONResult" />
+		</result-types>
+		
+		<interceptors>
+			<interceptor name="afterLoginInterceptor" class="culinary.utils.AfterLoginInterceptor" />
+
+
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="afterLoginInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+
+		</interceptors>
+
+		<default-interceptor-ref name="loginStack" />
+		
+		<global-results>
+			<result name="showSearch" type="redirect">/secure/ShowSearch.action</result>
+			<result name="showSearchTitle" type="redirect">/secure/ShowSearchTitle.action</result>
+			<result name="showSearchCatalogue" type="redirect">/secure/ShowCatalogue.action</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="showSearch" />
+		</global-exception-mappings>
+		
+		<action name="ShowSearch" class="culinary.unsecure.ShowSearch">
+			<result type="tiles">/unsecure/ShowSearch.tiles</result>
+		</action>
+		<action name="ShowSearchTitle">
+			<result type="tiles">/unsecure/ShowSearchTitle.tiles</result>
+		</action>
+		<action name="ShowCategoryDishes"  class="culinary.secure.user.ShowCategoryDishes">
+			<result type="tiles">/unsecure/ShowCategoryDishes.tiles</result>
+		</action>
+		
+		<action name="ShowCatalogue"  class="culinary.secure.user.ShowCatalogue">
+			<result type="tiles">/unsecure/ShowCatalogue.tiles</result>
+		</action>
+		
+		<action name="GetDishesPerCategory" class="culinary.secure.user.GetDishesPerCategory">
+			<result type="json">dishes</result>   
+		</action>
+		
+		<action name="GetDishesTitle" class="culinary.secure.user.GetDishesTitle">
+			<result type="json">dishes</result>   
+		</action>
+		
+		<action name="GetDishes" class="culinary.secure.user.GetDishes">
+			<result type="json">dishes</result>   
+		</action>
+		
+		<action name="ShowDish"  class="culinary.unsecure.ShowDish">
+			<result type="tiles">/unsecure/ShowDish.tiles</result>
+		</action>
+	</package>
+
+	<package name="prelogin" namespace="/secure" extends="struts-default">
+	
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+		
+		<interceptors>
+			<interceptor name="afterLoginInterceptor" class="culinary.utils.AfterLoginInterceptor" />
+
+
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="afterLoginInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+
+		</interceptors>
+
+		<default-interceptor-ref name="loginStack" />
+		
+		<global-results>
+			<result name="showSearch" type="redirect">/secure/ShowSearch.action</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="showSearch" />
+		</global-exception-mappings>
+		
+		<action name="Register">
+			<result type="tiles">/secure/prelogin/Registration.tiles</result>
+		</action>
+
+		<action name="Registration" class="culinary.secure.prelogin.Registration">
+			<result name="input" type="tiles">/secure/prelogin/Registration.tiles
+			</result>
+			<result name="success" type="tiles">/secure/prelogin/Registered.tiles
+			</result>
+		</action>
+
+		<action name="Activate">
+			<result type="tiles">/secure/prelogin/Activation.tiles</result>
+		</action>
+
+		<action name="Activation" class="culinary.secure.prelogin.Activation">
+			<result name="input" type="tiles">/secure/prelogin/Activation.tiles
+			</result>
+			<result name="success" type="tiles">/secure/prelogin/Activated.tiles
+			</result>
+		</action>
+
+		<action name="Reset">
+			<result type="tiles">/secure/prelogin/Resetion.tiles</result>
+		</action>
+
+		<action name="Resetion" class="culinary.secure.prelogin.Resetion">
+			<result name="input" type="tiles">/secure/prelogin/Resetion.tiles
+			</result>
+			<result name="success" type="tiles">/secure/prelogin/Reset.tiles
+			</result>
+		</action>
+
+		<action name="Login">
+			<result type="tiles">/secure/prelogin/Login.tiles</result>
+		</action>
+
+		<action name="sessionExpired">
+			<result type="tiles">/secure/prelogin/sessionExpired.tiles</result>
+		</action>
+
+		<action name="PerformLogin" class="culinary.secure.prelogin.Login">
+			<result name="input" type="tiles">/secure/prelogin/Login.tiles
+			</result>
+			<result name="success" type="redirect">/secure/ShowSearch.action
+			</result>
+		</action>
+
+	</package>
+
+	<package name="user" namespace="/secure" extends="struts-default">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+			<result-type name="json"
+				class="culinary.utils.JSONResult" />
+		</result-types>
+
+		<interceptors>
+			<interceptor name="sessionInterceptor" class="culinary.utils.SessionInterceptor" />
+			<interceptor name="authenticationInterceptor"
+				class="culinary.utils.AuthenticationInterceptor" />
+
+			<interceptor-stack name="secureStack">
+				<interceptor-ref name="sessionInterceptor" />
+				<interceptor-ref name="authenticationInterceptor" />
+				<interceptor-ref name="fileUpload">
+					<param name="allowedTypes">
+						image/png,image/gif,image/jpeg
+					</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+
+		</interceptors>
+
+		<default-interceptor-ref name="secureStack" />
+
+		<global-results>
+			<result name="login" type="redirect">/secure/Login.action</result>
+			<result name="sessionExpired" type="redirect">/secure/sessionExpired.action
+			</result>
+			<result name="showSearch" type="redirect">/unsecure/ShowSearch.action</result>
+			<result name="showSearchTitle" type="redirect">/unsecure/ShowSearchTitle.action</result>
+			<result name="showCatalogue" type="redirect">/unsecure/ShowCatalogue.action</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="showSearch" />
+		</global-exception-mappings>
+		
+		<action name="SendComment" class="culinary.secure.user.SendComment">
+			<result type="json">sendComment</result>   
+		</action>
+		
+		<action name="SendRate" class="culinary.secure.user.SendRate">
+			<result type="json">sendRate</result>   
+		</action>
+		
+		<action name="AddToDo" class="culinary.secure.user.AddToDo">
+			<result type="json">addedToDo</result>   
+		</action>
+
+		
+		<action name="GetDishesPerCategory" class="culinary.secure.user.GetDishesPerCategory">
+			<result type="json">dishes</result>   
+		</action>
+		
+		<action name="GetDishesTitle" class="culinary.secure.user.GetDishesTitle">
+			<result type="json">dishes</result>   
+		</action>
+		
+		<action name="GetOrderHistory" class="culinary.secure.user.GetOrderHistory">
+			<result type="json">orders</result>   
+		</action>
+		
+		<action name="GetDishes" class="culinary.secure.user.GetDishes">
+			<result type="json">dishes</result>   
+		</action>
+
+		<action name="ShowSearch">
+			<result type="tiles">/secure/user/ShowSearch.tiles</result>
+		</action>
+		
+		<action name="ShowSearchTitle">
+			<result type="tiles">/secure/user/ShowSearchTitle.tiles</result>
+		</action>
+		
+		<action name="ShowAddDish"  class="culinary.secure.user.ShowAddDish">
+			<result type="tiles">/secure/user/ShowAddDish.tiles</result>
+		</action>
+		
+		<action name="ShowRewards"  class="culinary.secure.user.ShowRewards">
+			<result type="tiles">/secure/user/ShowRewards.tiles</result>
+		</action>
+		
+		<action name="SendReward" class="culinary.secure.user.SendReward">
+			<result name="input" type="tiles">/secure/user/ShowRewards.tiles
+			</result>
+			<result name="success" type="tiles">/secure/user/ShowRewards.tiles
+			</result>
+		</action>
+		
+		<action name="ShowCategoryDishes"  class="culinary.secure.user.ShowCategoryDishes">
+			<result type="tiles">/secure/user/ShowCategoryDishes.tiles</result>
+		</action>
+		
+		<action name="ShowCatalogue"  class="culinary.secure.user.ShowCatalogue">
+			<result type="tiles">/secure/user/ShowCatalogue.tiles</result>
+		</action>
+		
+		<action name="ShowMyDishes"  class="culinary.secure.user.ShowMyDishes">
+			<result type="tiles">/secure/user/ShowMyDishes.tiles</result>
+		</action>
+		
+		<action name="ShowMyDishesToDo"  class="culinary.secure.user.ShowMyDishesToDo">
+			<result type="tiles">/secure/user/ShowMyDishesToDo.tiles</result>
+		</action>
+		
+		<action name="AddDish"  class="culinary.secure.user.AddDish">
+			<result type="tiles" name="success">/secure/user/AddedDish.tiles</result>
+			<result type="tiles" name="input">/secure/user/ShowAddDish.tiles</result>
+		</action>
+		
+		<action name="ShowDish"  class="culinary.secure.user.ShowDish">
+			<result type="tiles">/secure/user/ShowDish.tiles</result>
+		</action>
+
+		<action name="Logout">
+			<result type="tiles">/secure/prelogin/Logout.tiles</result>
+		</action>
+
+		<action name="ShowChangePassword">
+			<result type="tiles">/secure/user/ChangePassword.tiles</result>
+		</action>
+
+		<action name="ChangePassword" class="culinary.secure.user.ChangePassword">
+			<result name="input" type="tiles">/secure/user/ChangePassword.tiles
+			</result>
+			<result name="success" type="tiles">/secure/user/ChangedPassword.tiles
+			</result>
+		</action>
+
+
+		<action name="ShowRequestIngredient">
+			<result type="tiles">/secure/user/RequestIngredient.tiles</result>
+		</action>
+
+		<action name="RequestIngredient" class="culinary.secure.user.RequestIngredient">
+			<result name="input" type="tiles">/secure/user/RequestIngredient.tiles
+			</result>
+			<result name="success" type="tiles">/secure/user/RequestedIngredient.tiles
+			</result>
+		</action>
+
+		<action name="ViewProfile">
+			<result name="success" type="tiles">/secure/user/ViewProfile.tiles
+			</result>
+		</action>
+
+		<action name="UploadProfilePhoto" class="culinary.secure.user.UploadProfilePhoto">
+			<param name="fileSystemPath">/images/avatar</param>
+
+			<result name="input" type="tiles">/secure/user/UploadProfilePhoto.tiles
+			</result>
+			<result name="success" type="tiles">/secure/user/ViewProfile.tiles
+			</result>
+		</action>
+
+		<action name="UploadDishPhoto" class="culinary.secure.user.UploadDishPhoto">
+			<param name="fileSystemPath">/images/dishes</param>
+
+			<result name="input" type="tiles">/secure/user/UploadDishPhoto.tiles
+			</result>
+			<result name="success" type="tiles">/secure/user/UploadedDishPhoto.tiles
+			</result>
+		</action>
+
+		<action name="ShowEditProfile">
+			<result type="tiles">/secure/user/EditProfile.tiles</result>
+		</action>
+
+		<action name="EditProfile" class="culinary.secure.user.EditProfile">
+			<result name="input" type="tiles">/secure/user/EditProfile.tiles
+			</result>
+			<result name="success" type="tiles">/secure/user/ViewProfile.tiles
+			</result>
+		</action>
+		
+		<action name="ShowMyAchievementsRanks" class="culinary.secure.user.ShowMyAchievementsRanks">
+			<result name="success" type="tiles">/secure/user/ShowMyAchievementsRanks.tiles
+			</result>
+		</action>
+		
+		<action name="ShowThisUser" class="culinary.secure.user.ShowThisUser">
+			<result name="success" type="tiles">/secure/user/ShowThisUser.tiles
+			</result>
+		</action>
+		
+		
+
+
+
+	</package>
+
+	<package name="admin" namespace="/secure" extends="struts-default">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+			<result-type name="json"
+				class="culinary.utils.JSONResult" />
+		</result-types>
+
+		<interceptors>
+
+			<interceptor name="sessionInterceptor" class="culinary.utils.SessionInterceptor" />
+			<interceptor name="authenticationInterceptor"
+				class="culinary.utils.AuthenticationInterceptor" />
+			<interceptor name="authenticationInterceptorAdmin"
+				class="culinary.utils.AuthenticationInterceptorAdmin" />
+
+			<interceptor-stack name="secureStackAdmin">
+				<interceptor-ref name="sessionInterceptor" />
+				<interceptor-ref name="authenticationInterceptor" />
+				<interceptor-ref name="authenticationInterceptorAdmin" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+
+		</interceptors>
+
+		<default-interceptor-ref name="secureStackAdmin" />
+
+		<global-results>
+			<result name="login" type="redirect">/secure/Login.action</result>
+			<result name="sessionExpired" type="redirect">/secure/sessionExpired.action
+			</result>
+			<result name="showSearch" type="redirect">/unsecure/ShowSearch.action</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="showSearchE" />
+		</global-exception-mappings>
+		<action name="BanComment" class="culinary.secure.admin.BanComment">
+			<result type="json">banComment</result>   
+		</action>
+
+		<action name="EditUser" class="culinary.secure.admin.EditUser">
+			<result name="input" type="tiles">/secure/admin/EditUser.tiles
+			</result>
+			<result name="success" type="tiles">/secure/admin/EditedUser.tiles
+			</result>
+		</action>
+
+		<action name="ShowUsers" class="culinary.secure.admin.ShowUsers">
+			<result type="tiles">/secure/admin/ShowUsers.tiles
+			</result>
+		</action>
+		
+		<action name="BanUser" class="culinary.secure.admin.BanUser">
+			<result type="json">banUser</result>   
+		</action>
+		
+		<action name="ShowAddCategory" class="culinary.secure.admin.AddEditCategory">
+			<result name="success" type="tiles">/secure/admin/AddEditCategory.tiles
+			</result>
+		</action>
+
+		<action name="AddCategory" class="culinary.secure.admin.AddCategory">
+			<result name="input" type="tiles">/secure/admin/AddEditCategory.tiles
+			</result>
+			<result name="success" type="tiles">/secure/admin/AddedCategory.tiles
+			</result>
+		</action>
+
+		<action name="ShowEditCategory">
+			<result type="tiles">/secure/admin/EditCategory.tiles
+			</result>
+		</action>
+
+		<action name="EditCategory" class="culinary.secure.admin.EditCategory">
+			<result name="input" type="tiles">/secure/admin/EditCategory.tiles
+			</result>
+			<result name="success" type="tiles">/secure/admin/EditedCategory.tiles
+			</result>
+		</action>
+
+		<action name="ShowAddIngredient" class="culinary.secure.admin.AddEditIngredient">
+			<result name="success" type="tiles">/secure/admin/AddEditIngredient.tiles
+			</result>
+		</action>
+
+		<action name="AddIngredient" class="culinary.secure.admin.AddIngredient">
+			<result name="input" type="tiles">/secure/admin/AddEditIngredient.tiles
+			</result>
+			<result name="success" type="tiles">/secure/admin/AddedIngredient.tiles
+			</result>
+		</action>
+
+		<action name="ShowEditIngredient">
+			<result type="tiles">/secure/admin/EditIngredient.tiles
+			</result>
+		</action>
+
+		<action name="EditIngredient" class="culinary.secure.admin.EditIngredient">
+			<result name="input" type="tiles">/secure/admin/EditIngredient.tiles
+			</result>
+			<result name="success" type="tiles">/secure/admin/EditedIngredient.tiles
+			</result>
+		</action>
+		
+		<action name="ShowApprovePhoto" class="culinary.secure.admin.ShowApprovePhoto">
+			<result type="tiles">/secure/admin/ShowApprovePhoto.tiles
+			</result>
+		</action>
+ 
+		<action name="ApprovePhoto" class="culinary.secure.admin.ApprovePhoto">
+			<result type="json">approvePhoto</result>   
+		</action>
+		
+		<action name="BlockDish" class="culinary.secure.admin.BlockDish">
+			<result type="json">blockedDish</result>   
+		</action>
+
+		<action name="ShowBlockDish"  class="culinary.secure.admin.ShowBlockDish">
+			<result type="tiles">/secure/admin/ShowBlockDish.tiles</result>
+		</action>
+
+
+	</package>
+
+</struts>

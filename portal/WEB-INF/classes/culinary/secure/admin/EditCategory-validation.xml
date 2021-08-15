@@ -1,0 +1,22 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+       "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	
+	<field name="name">
+		<field-validator type="requiredstring">
+			<message key="editcategory.err.name.required" />
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">70</param>
+			<param name="minLength">5</param>
+			<message key="editcategory.err.name.length" />
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression">
+				^[a-z ,.A-Z0-9_-]*$
+			</param>
+			<message key="editcategory.err.name.invalid" />
+		</field-validator>
+	</field>
+	
+</validators>

@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<definition name="baseLayout" template="/layout/BaseLayout.jsp">
+		<put-attribute name="header" value="/secure/Header.jsp" />
+		<put-attribute name="menu_top" value="/secure/MenuTop.jsp" />
+		<put-attribute name="sidebar_left" value="" />
+		<put-attribute name="content" value="/unsecure/ShowSearch.jsp" />
+		<put-attribute name="footer" value="/unsecure/Footer.jsp" />
+	</definition>
+	
+	<definition name="/unsecure/ShowDish.tiles" extends="baseLayout">
+		<put-attribute name="header" value="/unsecure/Header.jsp" />
+		<put-attribute name="menu_top" value="/unsecure/MenuTop.jsp" />
+		<put-attribute name="sidebar_left" value="/unsecure/SidebarLeftGuest.jsp" />
+		<put-attribute name="content" value="/unsecure/ShowDish.jsp" />
+	</definition>
+	
+	<definition name="/unsecure/ShowSearch.tiles" extends="baseLayout">
+		<put-attribute name="header" value="/unsecure/Header.jsp" />
+		<put-attribute name="menu_top" value="/unsecure/MenuTop.jsp" />
+		<put-attribute name="sidebar_left" value="/unsecure/SidebarLeftGuest.jsp" />
+		<put-attribute name="content" value="/unsecure/ShowSearch.jsp" />
+	</definition>
+	
+	<definition name="/unsecure/ShowSearchTitle.tiles" extends="baseLayout">
+		<put-attribute name="header" value="/unsecure/Header.jsp" />
+		<put-attribute name="menu_top" value="/unsecure/MenuTop.jsp" />
+		<put-attribute name="sidebar_left" value="/unsecure/SidebarLeftGuest.jsp" />
+		<put-attribute name="content" value="/unsecure/ShowSearchTitle.jsp" />
+	</definition>
+	
+	<definition name="/unsecure/ShowCategoryDishes.tiles" extends="baseLayout">
+		<put-attribute name="header" value="/unsecure/Header.jsp" />
+		<put-attribute name="menu_top" value="/unsecure/MenuTop.jsp" />
+		<put-attribute name="sidebar_left" value="/unsecure/SidebarLeftGuest.jsp" />
+		<put-attribute name="content" value="/unsecure/ShowCategoryDishes.jsp" />
+	</definition>
+	
+	<definition name="/unsecure/ShowCatalogue.tiles" extends="baseLayout">
+		<put-attribute name="header" value="/unsecure/Header.jsp" />
+		<put-attribute name="menu_top" value="/unsecure/MenuTop.jsp" />
+		<put-attribute name="sidebar_left" value="/unsecure/SidebarLeftGuest.jsp" />
+		<put-attribute name="content" value="/unsecure/ShowCatalogue.jsp" />
+	</definition>
+
+	<definition name="/secure/prelogin/Registration.tiles" extends="baseLayout">
+		<put-attribute name="header" value="/unsecure/Header.jsp" />
+		<put-attribute name="menu_top" value="/unsecure/MenuTop.jsp" />
+		<put-attribute name="sidebar_left" value="/unsecure/SidebarLeftGuest.jsp" />
+		<put-attribute name="content" value="/secure/prelogin/Registration.jsp" />
+	</definition>
+	
+	<definition name="/secure/prelogin/Registered.tiles" extends="baseLayout">
+		<put-attribute name="header" value="/unsecure/Header.jsp" />
+		<put-attribute name="menu_top" value="/unsecure/MenuTop.jsp" />
+		<put-attribute name="sidebar_left" value="/unsecure/SidebarLeftGuest.jsp" />
+		<put-attribute name="content" value="/secure/prelogin/Registered.jsp" />
+	</definition>
+	
+	<definition name="/secure/prelogin/Activation.tiles" extends="baseLayout">
+		<put-attribute name="header" value="/unsecure/Header.jsp" />
+		<put-attribute name="menu_top" value="/unsecure/MenuTop.jsp" />
+		<put-attribute name="sidebar_left" value="/unsecure/SidebarLeftGuest.jsp" />
+		<put-attribute name="content" value="/secure/prelogin/Activation.jsp" />
+	</definition>
+	
+	<definition name="/secure/prelogin/Activated.tiles" extends="baseLayout">
+		<put-attribute name="header" value="/unsecure/Header.jsp" />
+		<put-attribute name="menu_top" value="/unsecure/MenuTop.jsp" />
+		<put-attribute name="sidebar_left" value="/unsecure/SidebarLeftGuest.jsp" />
+		<put-attribute name="content" value="/secure/prelogin/Activated.jsp" />
+	</definition>
+	
+	<definition name="/secure/prelogin/Resetion.tiles" extends="baseLayout">
+		<put-attribute name="header" value="/unsecure/Header.jsp" />
+		<put-attribute name="menu_top" value="/unsecure/MenuTop.jsp" />
+		<put-attribute name="sidebar_left" value="/unsecure/SidebarLeftGuest.jsp" />
+		<put-attribute name="content" value="/secure/prelogin/Resetion.jsp" />
+	</definition>
+	
+	<definition name="/secure/prelogin/Logout.tiles" extends="baseLayout">
+		<put-attribute name="header" value="/unsecure/Header.jsp" />
+		<put-attribute name="menu_top" value="/unsecure/MenuTop.jsp" />
+		<put-attribute name="sidebar_left" value="/unsecure/SidebarLeftGuest.jsp" />
+		<put-attribute name="content" value="/secure/prelogin/Logout.jsp" />
+	</definition>
+	
+	<definition name="/secure/prelogin/Reset.tiles" extends="baseLayout">
+		<put-attribute name="header" value="/unsecure/Header.jsp" />
+		<put-attribute name="menu_top" value="/unsecure/MenuTop.jsp" />
+		<put-attribute name="sidebar_left" value="/unsecure/SidebarLeftGuest.jsp" />
+		<put-attribute name="content" value="/secure/prelogin/Reset.jsp" />
+	</definition>
+	
+	<definition name="/secure/prelogin/Login.tiles" extends="baseLayout">
+		<put-attribute name="header" value="/unsecure/Header.jsp" />
+		<put-attribute name="menu_top" value="/unsecure/MenuTop.jsp" />
+		<put-attribute name="sidebar_left" value="/unsecure/SidebarLeftGuest.jsp" />
+		<put-attribute name="content" value="/secure/prelogin/Login.jsp" />
+	</definition>
+	
+	<definition name="/secure/prelogin/sessionExpired.tiles" extends="baseLayout">
+		<put-attribute name="header" value="/unsecure/Header.jsp" />
+		<put-attribute name="menu_top" value="/unsecure/MenuTop.jsp" />
+		<put-attribute name="sidebar_left" value="/unsecure/SidebarLeftGuest.jsp" />
+		<put-attribute name="content" value="/secure/prelogin/SessionExpired.jsp" />
+	</definition>
+	
+	<definition name="/secure/user/ShowSearch.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/ShowSearch.jsp" />
+	</definition>
+	
+	<definition name="/secure/user/ShowSearchTitle.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/ShowSearchTitle.jsp" />
+	</definition>
+	
+	
+	<definition name="/secure/user/ChangePassword.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/ChangePassword.jsp" />
+	</definition>
+	
+	<definition name="/secure/user/ChangedPassword.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/ChangedPassword.jsp" />
+	</definition>
+	
+	<definition name="/secure/user/ViewProfile.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/ViewProfile.jsp" />
+	</definition>
+	
+	<definition name="/secure/user/ShowAddDish.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/ShowAddDish.jsp" />
+	</definition>
+	
+	<definition name="/secure/user/ShowMyDishes.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/ShowMyDishes.jsp" />
+	</definition>
+	
+	<definition name="/secure/user/ShowRewards.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/ShowRewards.jsp" />
+	</definition>
+	
+	<definition name="/secure/user/SentReward.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/SentReward.jsp" />
+	</definition>
+	
+	<definition name="/secure/user/ShowCategoryDishes.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/ShowCategoryDishes.jsp" />
+	</definition>
+	
+	<definition name="/secure/user/ShowCatalogue.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/ShowCatalogue.jsp" />
+	</definition>
+	
+	<definition name="/secure/user/ShowMyDishesToDo.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/ShowMyDishesToDo.jsp" />
+	</definition>
+	
+	<definition name="/secure/user/AddedDish.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/AddedDish.jsp" />
+	</definition>
+	
+	<definition name="/secure/user/ShowDish.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/ShowDish.jsp" />
+	</definition>
+	
+	
+	<definition name="/secure/user/ShowThisUser.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/ShowThisUser.jsp" />
+	</definition>
+	
+	<definition name="/secure/user/ShowMyAchievementsRanks.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/ShowMyAchievementsRanks.jsp" />
+	</definition>
+	
+	<definition name="/secure/user/EditProfile.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/EditProfile.jsp" />
+	</definition>
+	
+	<definition name="/secure/user/UploadProfilePhoto.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/UploadProfilePhoto.jsp" />
+	</definition>
+
+	<definition name="/secure/user/UploadDishPhoto.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/UploadDishPhoto.jsp" />
+	</definition>
+	
+	<definition name="/secure/user/UploadedDishPhoto.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/UploadedDishPhoto.jsp" />
+	</definition>
+	
+	<definition name="/secure/user/RequestIngredient.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/RequestIngredient.jsp" />
+	</definition>
+	
+	<definition name="/secure/user/RequestedIngredient.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/user/RequestedIngredient.jsp" />
+	</definition>
+	
+	<definition name="/secure/admin/ShowUsers.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/admin/ShowUsers.jsp" />
+	</definition>
+	
+	<definition name="/secure/admin/AddEditCategory.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/admin/AddEditCategory.jsp" />
+	</definition>
+	
+	<definition name="/secure/admin/AddedCategory.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/admin/AddedCategory.jsp" />
+	</definition>
+	
+	<definition name="/secure/admin/EditCategory.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/admin/EditCategory.jsp" />
+	</definition>
+	
+	<definition name="/secure/admin/EditedCategory.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/admin/EditedCategory.jsp" />
+	</definition>
+	
+	<definition name="/secure/admin/AddEditIngredient.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/admin/AddEditIngredient.jsp" />
+	</definition>
+	
+	<definition name="/secure/admin/AddedIngredient.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/admin/AddedIngredient.jsp" />
+	</definition>
+	
+	<definition name="/secure/admin/EditIngredient.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/admin/EditIngredient.jsp" />
+	</definition>
+	
+	<definition name="/secure/admin/EditedIngredient.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/admin/EditedIngredient.jsp" />
+	</definition>
+	
+	<definition name="/secure/admin/ShowApprovePhoto.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/admin/ShowApprovePhoto.jsp" />
+	</definition>
+	
+	<definition name="/secure/admin/EditUser.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/admin/EditUser.jsp" />
+	</definition>
+	
+	<definition name="/secure/admin/EditedUser.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/admin/EditedUser.jsp" />
+	</definition>
+	
+	<definition name="/secure/admin/ShowBlockDish.tiles" extends="baseLayout">
+		<put-attribute name="sidebar_left" value="/secure/SidebarLeftUser.jsp" />
+		<put-attribute name="content" value="/secure/admin/ShowBlockDish.jsp" />
+	</definition>
+	
+
+</tiles-definitions>

@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Gospodynka.pl - stress test</title>
+<style>
+table {
+	border-collapse: separate;
+	border-spacing: 10px;
+	border:1px solid black;
+}
+</style>
+</head>
+<body>
+<div id='user_data'></div>
+<script type="text/javascript" language="JavaScript"
+	src="/portal/js/j.js"></script>
+<script type="text/javascript" language="JavaScript">
+
+var actions={
+		1:{
+			 desc: 'PerformLogin' 
+			,url: '/portal/secure/PerformLogin.action?request_locale=en' 
+			,postData: {
+			     email : 'mszonline@gmail.com'
+				,password : 'Morenike5@'
+			}
+		},
+		2:{
+			 desc: 'ShowAddDish' 
+			,url: '/portal/secure/ShowAddDish.action' 
+			,postData: {}
+		},
+		3:{
+			 desc: 'ShowMyDishes' 
+			,url: '/portal/secure/ShowMyDishes.action' 
+			,postData: {}
+		},
+		4:{
+			 desc: 'ShowRequestIngredient' 
+			,url: '/portal/secure/ShowRequestIngredient.action' 
+			,postData: {}
+		},
+		5:{
+			 desc: 'ShowRewards' 
+			,url: '/portal/secure/ShowRewards.action' 
+			,postData: {}
+		},
+		6:{
+			 desc: 'ShowChangePassword' 
+			,url: '/portal/secure/ShowChangePassword.action' 
+			,postData: {}
+		},
+		7:{
+			 desc: 'ShowAddCategory' 
+			,url: '/portal/secure/ShowAddCategory.action' 
+			,postData: {}
+		},
+		8:{
+			 desc: 'ShowAddIngredient' 
+			,url: '/portal/secure/ShowAddIngredient.action' 
+			,postData: {}
+		},
+		9:{
+			 desc: 'ShowUsers' 
+			,url: '/portal/secure/ShowUsers.action' 
+			,postData: {}
+		},
+		10:{
+			 desc: 'ShowBlockDish' 
+			,url: '/portal/secure/ShowBlockDish.action' 
+			,postData: {}
+		},
+		11:{
+			 desc: 'ShowApprovePhoto' 
+			,url: '/portal/secure/ShowApprovePhoto.action' 
+			,postData: {}
+		},
+		12:{
+			 desc: 'Logout.action' 
+			,url: '/portal/secure/Logout.action' 
+			,postData: {}
+		}
+		
+		
+		
+};
+var actionsL = 12;
+
+function getParam(paramName) {
+	var searchString = window.location.search.substring(1), i, val, params = searchString
+			.split("&");
+	for (i = 0; i < params.length; i++) {
+		val = params[i].split("=");
+		if (val[0] == paramName) {
+
+			return unescape(val[1]) || '';
+		}
+	}
+	return '';
+
+}
+
+var interval = getParam('interval'); //second(s)
+if(interval=='') interval=1;
+
+function niceDate(date){
+	return date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
+}
+	
+function sendAjaxCall(i){
+	var startTime = new Date();
+	$.ajax({
+		type: 'POST',
+		url: actions[i].url,
+		dataType: 'html',
+		async: true,
+		data : actions[i].postData,
+		success: function(data) {
+			$('table').append('<tr><td>'+niceDate(new Date()) + '</td><td>' + actions[i].desc + '</td><td>' + (new Date()-startTime) + '</td></tr>');
+			
+			if (i==1) $('#user_data').html($(data).find('#sT').html());
+			if (i==actionsL) $('#user_data').html('');
+
+			if (i < actionsL) setTimeout(function(){sendAjaxCall(i+1);}, interval*1000);
+			else setTimeout(function(){sendAjaxCall(1);}, interval*1000);
+		
+		},
+		error: function (XMLHttpRequest, textStatus, errorThrown) { 
+			$('table').append('<tr><td>'+niceDate(new Date()) + '</td><td>Ajax error: ' + actions[i].desc + '</td></tr>');
+		}
+	});
+	
+}
+
+
+
+sendAjaxCall(1);
+
+
+
+</script>
+<hr>
+Log:<br>
+<table></table>
+</body>
+</html>
