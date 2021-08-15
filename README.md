@@ -12,7 +12,7 @@
 - JQuery
 - JQueryUI
 - Java/JSP
-- Apache Struts 2
+- Struts 2 (MVC framework)
 - MySQL
 - Tomcat
 
