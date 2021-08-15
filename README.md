@@ -2,11 +2,10 @@
 
 ## Description
 
-- University: **[Polish-Japanese Academy of Information Technology in Warsaw, Poland](https://www.pja.edu.pl/en/)**
-- Databases Major Thesis (in English):
-**[Culinary web application with elements of social portal](papers/databases-major/Maciej_Szczesny_s5014_SDabd_praca_inzynierska.pdf)**
-- Business Applications Programming Major Thesis (in Polish):
-**[Implementation of a thematic social portal with the use of Struts2](papers/business-applications-programming-major/Maciej_Szczesny_s5014_SDg_praca_inzynierska.pdf)**
+- University:<br />**[Polish-Japanese Academy of Information Technology in Warsaw, Poland](https://www.pja.edu.pl/en/)**
+- Databases Major Thesis (in English):<br />**[Culinary web application with elements of social portal](theses/databases-major/Maciej_Szczesny_s5014_SDabd_praca_inzynierska.pdf)**
+- Business Applications Programming Major Thesis (in Polish):<br />**[Implementation of a thematic social portal with the use of Struts2](theses/business-applications-programming-major/Maciej_Szczesny_s5014_SDg_praca_inzynierska.pdf)**
+- Date theses defended:<br />July 2012
 
 ## Technologies/Components
 
@@ -19,8 +18,8 @@
 
 ## Directories
 
-- db-script (SQL script to create tables and triggers and seed data)
-- portal (source code of the application - covers both majors)
+- db-script (SQL script to create tables and triggers and to seed data)
+- portal (source code of the application - the same application covers both majors)
 - theses (final papers for both majors)
 
 ## Contact
