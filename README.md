@@ -5,7 +5,7 @@
 - University: **[Polish-Japanese Academy of Information Technology in Warsaw, Poland](https://www.pja.edu.pl/en/)**
 - Databases major thesis (in English): **[Culinary web application with elements of social portal](theses/databases-major/Maciej_Szczesny_s5014_SDabd_praca_inzynierska.pdf)**
 - Business Apps Programming major thesis (in Polish): **[Implementation of a thematic social portal with the use of Struts2](theses/business-applications-programming-major/Maciej_Szczesny_s5014_SDg_praca_inzynierska.pdf)**
-- Date theses defended: July 2012
+- Date theses defended: July 2012 (awarded Honour degree by the decision of the examination commission)
 
 ## Technologies/Components
 
