@@ -1,10 +1,10 @@
-# Bachelor of Engineering in Computer Science - Final Project
+# Engineer of Computer Science - Final Project
 
 ## Project Description
 
-University: **Polish-Japanese Institue of Information Technology in Warsaw, Poland** (renamed to Polish-Japanese Academy of Information Technology)
-Thesis/Application: **Culinary Web Application with Elements of Social Portal**
-Double Major: **Databases, Business Applications Programming**
+- University: **Polish-Japanese Academy of Information Technology in Warsaw, Poland**
+- Thesis/Application: **Culinary Web Application with Elements of Social Portal**
+- Double Major: **Databases, Business Applications Programming**
 
 ## Technologies/Components
 
