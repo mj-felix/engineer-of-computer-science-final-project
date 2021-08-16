@@ -1,11 +1,15 @@
+![Polish-Japanese Academy of Information Technology in Warsaw, Poland](https://mjfelix.dev/img/external/pjwstk-logo.png)
+
 # Engineer of Computer Science - Final Project
+
+![Social Culinary Portal](https://mjfelix.dev/img/external/engineer-of-computer-science-final-project.jpg)
 
 ## Description
 
 - University: **[Polish-Japanese Academy of Information Technology in Warsaw, Poland](https://www.pja.edu.pl/en/)**
 - Databases major thesis (in English): **[Culinary web application with elements of social portal](theses/databases-major/Maciej_Szczesny_s5014_SDabd_praca_inzynierska.pdf)**
 - Business Apps Programming major thesis (in Polish): **[Implementation of a thematic social portal with the use of Struts2](theses/business-applications-programming-major/Maciej_Szczesny_s5014_SDg_praca_inzynierska.pdf)**
-- Date theses defended: July 2012 (awarded Honour degree by the decision of the examination commission)
+- Date theses defended: July 2012 **(by the decision of the examination commission awarded Honour degree)**
 
 ## Technologies/Components
 
