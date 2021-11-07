@@ -1,8 +1,8 @@
-![Polish-Japanese Academy of Information Technology in Warsaw, Poland](https://mjfelix.dev/img/external/pjwstk-logo.png)
+![Polish-Japanese Academy of Information Technology in Warsaw, Poland](./pjwstk-logo.png)
 
 # Engineer of Computer Science - Final Project
 
-![Social Culinary Portal](https://mjfelix.dev/img/external/engineer-of-computer-science-final-project.jpg)
+![Social Culinary Portal](./engineer-of-computer-science-final-project.jpg)
 
 ## Description
 
